@@ -2,7 +2,7 @@ package com.mordenkainen.equivalentenergistics.util;
 
 import java.text.DecimalFormat;
 
-import com.mordenkainen.equivalentenergistics.EquivalentEnergistics;
+import com.mordenkainen.equivalentenergistics.EquivalentEnergetics;
 import com.mordenkainen.equivalentenergistics.core.config.EqEConfig;
 
 import net.minecraft.block.state.IBlockState;
@@ -95,13 +95,13 @@ public final class CommonUtils {
 
     public static void debugLog(final String message) {
         if (EqEConfig.misc.debug) {
-            EquivalentEnergistics.logger.debug(message);
+            EquivalentEnergetics.logger.debug(message);
         }
     }
 
     public static void debugLog(final String message, final Throwable t) {
         if (EqEConfig.misc.debug) {
-            EquivalentEnergistics.logger.debug(message, t);
+            EquivalentEnergetics.logger.debug(message, t);
         }
     }
 

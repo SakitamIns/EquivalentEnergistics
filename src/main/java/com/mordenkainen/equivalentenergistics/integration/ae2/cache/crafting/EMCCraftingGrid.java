@@ -8,7 +8,7 @@ import java.util.WeakHashMap;
 
 import com.google.common.base.Equivalence;
 import com.google.common.base.Equivalence.Wrapper;
-import com.mordenkainen.equivalentenergistics.EquivalentEnergistics;
+import com.mordenkainen.equivalentenergistics.EquivalentEnergetics;
 import com.mordenkainen.equivalentenergistics.integration.ae2.EMCCraftingPattern;
 import com.mordenkainen.equivalentenergistics.items.ModItems;
 import com.mordenkainen.equivalentenergistics.util.CompItemStack;
@@ -117,7 +117,7 @@ public class EMCCraftingGrid implements IEMCCraftingGrid {
                 final EMCCraftingPattern pattern = patternList.get(wrappedStack);
                 pattern.rebuildPattern();
                 if (!pattern.valid) {
-                    EquivalentEnergistics.logger.warn("Invalid EMC pattern detected. Item: " + I18n.format(pattern.getOutputs()[0].getItem().getUnlocalizedName(pattern.getOutputs()[0].createItemStack()) + ".name", new Object[0]) + " EMC: " + String.format("%f", pattern.outputEMC));
+                    EquivalentEnergetics.logger.warn("Invalid EMC pattern detected. Item: " + I18n.format(pattern.getOutputs()[0].getItem().getTranslationKey(pattern.getOutputs()[0].createItemStack()) + ".name", new Object[0]) + " EMC: " + String.format("%f", pattern.outputEMC));
                     iter.remove();
                 }
             } else {
@@ -151,7 +151,7 @@ public class EMCCraftingGrid implements IEMCCraftingGrid {
             if (pattern.valid) {
                 patternList.put(wrappedStack, new EMCCraftingPattern(wrappedStack.get()));
             } else {
-                EquivalentEnergistics.logger.warn("Invalid EMC pattern detected. Item: " + I18n.format(pattern.getOutputs()[0].getItem().getUnlocalizedName(pattern.getOutputs()[0].createItemStack()) + ".name", new Object[0])  + " EMC: " + String.format("%f", pattern.outputEMC));
+                EquivalentEnergetics.logger.warn("Invalid EMC pattern detected. Item: " + I18n.format(pattern.getOutputs()[0].getItem().getTranslationKey(pattern.getOutputs()[0].createItemStack()) + ".name", new Object[0])  + " EMC: " + String.format("%f", pattern.outputEMC));
             }
         }
     }

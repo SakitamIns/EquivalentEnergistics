@@ -2,6 +2,7 @@ package com.mordenkainen.equivalentenergistics.items;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.mordenkainen.equivalentenergistics.core.Names;
@@ -80,18 +81,18 @@ public class ItemEMCCell extends ItemCellBase implements IItemEmc {
         return CELL_DRAINS[stack.getItemDamage()];
     }
 
-    public double getStoredCellEMC(final ItemStack stack) {
+    public long getStoredCellEMC(final ItemStack stack) {
         if (!isCell(stack) || !hasEMCTag(stack)) {
             return 0;
         }
 
-        return Math.max(stack.getTagCompound().getDouble(EMC_TAG), 0);
+        return Math.max(stack.getTagCompound().getLong(EMC_TAG), 0);
     }
 
     @Override
-    public double addEmc(final ItemStack stack, final double toAdd) {
-        final double currentEMC = getStoredCellEMC(stack);
-        final double amountToAdd = Math.min(toAdd, CELL_CAPACITIES[stack.getItemDamage()] - currentEMC);
+    public long addEmc(@Nonnull ItemStack stack, long toAdd) {
+        final long currentEMC = getStoredCellEMC(stack);
+        final long amountToAdd = (long) Math.min(toAdd, CELL_CAPACITIES[stack.getItemDamage()] - currentEMC);
 
         if (amountToAdd > 0) {
             if (!stack.hasTagCompound()) {
@@ -104,9 +105,9 @@ public class ItemEMCCell extends ItemCellBase implements IItemEmc {
     }
 
     @Override
-    public double extractEmc(final ItemStack stack, final double emc) {
-        final double currentEMC = getStoredCellEMC(stack);
-        final double toRemove = Math.min(emc, currentEMC);
+    public long extractEmc(@Nonnull ItemStack stack, long emc) {
+        final long currentEMC = getStoredCellEMC(stack);
+        final long toRemove = Math.min(emc, currentEMC);
 
         if (hasEMCTag(stack)) {
             stack.getTagCompound().setDouble(EMC_TAG, currentEMC - toRemove);
@@ -119,18 +120,18 @@ public class ItemEMCCell extends ItemCellBase implements IItemEmc {
     }
 
     @Override
-    public double getStoredEmc(final ItemStack stack) {
+    public long getStoredEmc(final ItemStack stack) {
         return getStoredCellEMC(stack);
     }
     
     @Override
-    public double getMaximumEmc(final ItemStack stack) {
-        return CELL_CAPACITIES[stack.getItemDamage()];
+    public long getMaximumEmc(final ItemStack stack) {
+        return (long) CELL_CAPACITIES[stack.getItemDamage()];
     }
 
     private void removeEMCTag(final ItemStack stack) {
         stack.getTagCompound().removeTag(EMC_TAG);
-        if (stack.getTagCompound().hasNoTags()) {
+        if (stack.getTagCompound().isEmpty()) {
             stack.setTagCompound(null);
         }
     }

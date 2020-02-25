@@ -3,7 +3,7 @@ package com.mordenkainen.equivalentenergistics.blocks.base.block;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mordenkainen.equivalentenergistics.EquivalentEnergistics;
+import com.mordenkainen.equivalentenergistics.EquivalentEnergetics;
 import com.mordenkainen.equivalentenergistics.integration.ae2.NetworkLights;
 import com.mordenkainen.equivalentenergistics.integration.ae2.grid.IAEProxyHost;
 import com.mordenkainen.equivalentenergistics.integration.ae2.tiles.TileAEBase;
@@ -45,7 +45,7 @@ public abstract class BlockMultiAE extends BlockMultiTile {
     @Override
     public void registerItemModel(final Item itemBlock) {
         for (int i = 0; i < count; i++) {
-            EquivalentEnergistics.proxy.registerItemRenderer(itemBlock, i, name, "lights=none,type=" + i);
+            EquivalentEnergetics.proxy.registerItemRenderer(itemBlock, i, name, "lights=none,type=" + i);
         }
     }
 
@@ -68,9 +68,11 @@ public abstract class BlockMultiAE extends BlockMultiTile {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public BlockRenderLayer getBlockLayer() {
+    public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
+
+
 
     @SideOnly(Side.CLIENT)
     @Override

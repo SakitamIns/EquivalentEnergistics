@@ -1,6 +1,6 @@
 package com.mordenkainen.equivalentenergistics.items.base;
 
-import com.mordenkainen.equivalentenergistics.EquivalentEnergistics;
+import com.mordenkainen.equivalentenergistics.EquivalentEnergetics;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -26,14 +26,14 @@ public abstract class ItemMultiBase extends ItemBase {
     }
 
     @Override
-    public String getUnlocalizedName(final ItemStack stack) {
-        return super.getUnlocalizedName(stack) + "_" + stack.getMetadata();
+    public String getTranslationKey(final ItemStack stack) {
+        return super.getTranslationKey(stack) + "_" + stack.getMetadata();
     }
 
     @Override
     public void registerItemModel() {
         for (int i = 0; i < itemCount; i++) {
-            EquivalentEnergistics.proxy.registerItemRenderer(this, i, name + "_" + i);
+            EquivalentEnergetics.proxy.registerItemRenderer(this, i, name + "_" + i);
         }
     }
 

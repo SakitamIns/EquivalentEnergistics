@@ -1,6 +1,6 @@
 package com.mordenkainen.equivalentenergistics.blocks.base.block;
 
-import com.mordenkainen.equivalentenergistics.EquivalentEnergistics;
+import com.mordenkainen.equivalentenergistics.EquivalentEnergetics;
 import com.mordenkainen.equivalentenergistics.items.itemblocks.ItemBlockMulti;
 
 import net.minecraft.block.material.Material;
@@ -80,7 +80,7 @@ public abstract class BlockMulti extends BlockBase {
     @Override
     public void registerItemModel(final Item itemBlock) {
         for (int i = 0; i < count; i++) {
-            EquivalentEnergistics.proxy.registerItemRenderer(itemBlock, i, name, "type=" + i);
+            EquivalentEnergetics.proxy.registerItemRenderer(itemBlock, i, name, "type=" + i);
         }
     }
 

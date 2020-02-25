@@ -1,6 +1,6 @@
 package com.mordenkainen.equivalentenergistics.blocks.base.block;
 
-import com.mordenkainen.equivalentenergistics.EquivalentEnergistics;
+import com.mordenkainen.equivalentenergistics.EquivalentEnergetics;
 import com.mordenkainen.equivalentenergistics.core.Reference;
 
 import net.minecraft.block.Block;
@@ -15,13 +15,13 @@ public abstract class BlockBase extends Block {
     public BlockBase(final Material material, final String name) {
         super(material);
         this.name = name;
-        setUnlocalizedName(Reference.MOD_ID + ":" + name);
+        setTranslationKey(Reference.MOD_ID + ":" + name);
         setRegistryName(Reference.MOD_ID + ":" + name);
-        setCreativeTab(EquivalentEnergistics.tabEE);
+        setCreativeTab(EquivalentEnergetics.tabEE);
     }
 
     public void registerItemModel(final Item itemBlock) {
-        EquivalentEnergistics.proxy.registerItemRenderer(itemBlock, 0, name);
+        EquivalentEnergetics.proxy.registerItemRenderer(itemBlock, 0, name);
     }
 
     public Item createItemBlock() {

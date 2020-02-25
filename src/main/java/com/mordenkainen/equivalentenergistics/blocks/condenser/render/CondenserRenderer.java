@@ -1,6 +1,6 @@
 package com.mordenkainen.equivalentenergistics.blocks.condenser.render;
 
-import com.mordenkainen.equivalentenergistics.EquivalentEnergistics;
+import com.mordenkainen.equivalentenergistics.EquivalentEnergetics;
 import com.mordenkainen.equivalentenergistics.blocks.condenser.tiles.TileEMCCondenserExt;
 import com.mordenkainen.equivalentenergistics.core.proxy.ClientProxy;
 
@@ -72,9 +72,9 @@ public class CondenserRenderer extends FastTESR<TileEMCCondenserExt> {
     private TextureAtlasSprite getTexForSide(final TileEMCCondenserExt te, final EnumFacing side) {
         switch (te.getSide(side)) {
         case INPUT:
-            return ((ClientProxy) EquivalentEnergistics.proxy).condenserInput;
+            return ((ClientProxy) EquivalentEnergetics.proxy).condenserInput;
         case OUTPUT:
-            return ((ClientProxy) EquivalentEnergistics.proxy).condenserOutput;
+            return ((ClientProxy) EquivalentEnergetics.proxy).condenserOutput;
         default:
             return null;
         }
