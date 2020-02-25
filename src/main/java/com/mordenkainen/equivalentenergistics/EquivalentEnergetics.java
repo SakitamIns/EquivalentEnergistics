@@ -17,10 +17,10 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION, dependencies = Reference.MOD_DEPENDENCIES)
-public class EquivalentEnergistics {
+public class EquivalentEnergetics {
 
     @Instance(Reference.MOD_ID)
-    public static EquivalentEnergistics instance;
+    public static EquivalentEnergetics instance;
 
     @SidedProxy(clientSide = Reference.PROXY_LOC + "ClientProxy", serverSide = Reference.PROXY_LOC + "CommonProxy")
     public static CommonProxy proxy;
